@@ -1,11 +1,12 @@
 from verification import verify
+from report import print_report
 
-def main()
+def main():
     ip, attempt_pass = user_input()
-    resukt = verify(attempt_pass) 
-    result(ip, verification)
+    result = verify(attempt_pass) 
+    print_report(ip, result)
 
-def user_input()
+def user_input():
     ip = input("Enter yuor ip (if empty, using default)")
     attempt_pass = input ("Enter the password:")
 

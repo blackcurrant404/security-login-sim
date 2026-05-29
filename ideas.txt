@@ -5,3 +5,8 @@ security login simulator ideas
 - saves all the attempts and ip:s to the log file
 
 
+Structure
+
+- user_input
+- verification
+- result
