@@ -1,0 +1,7 @@
+security login simulator ideas
+
+- ask password
+- checks if the password is correct
+- saves all the attempts and ip:s to the log file
+
+
