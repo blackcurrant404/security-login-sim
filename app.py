@@ -10,7 +10,7 @@ def main():
 def user_input():
     input_info = {}
 
-    ip = input("Enter yuor ip (if empty, using default)")
+    ip = input("Enter your ip (if empty, using default): ")
     if ip == "":
         ip = "10.0.0.100"
     input_info["ip"] = ip
