@@ -1,9 +1,5 @@
-def verify(attempt_pass):
-    password = "bluewhale"
+PASSWORD = "bluewhale"
 
-    if attempt_pass == password:
-        result = "Accepted"
-    else:
-        result = "Failed"
+def verify(attempt_pass):
     
-    return result
+    return attempt_pass == PASSWORD
