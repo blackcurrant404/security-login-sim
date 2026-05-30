@@ -8,6 +8,8 @@ def main():
 
 def user_input():
     ip = input("Enter yuor ip (if empty, using default)")
+    if ip == "":
+        ip = "10.0.0.100"
     attempt_pass = input ("Enter the password:")
 
     return ip, attempt_pass
