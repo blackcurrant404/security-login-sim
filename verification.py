@@ -6,7 +6,6 @@ def verify(input_info):
     input_password = input_info["password"]
 
     if input_username in input_info:
-        password = users[input_username]
         return input_password == users[input_username]
 
     return False

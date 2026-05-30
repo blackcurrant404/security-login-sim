@@ -1,10 +1,11 @@
 from verification import verify
+from report import print_report
 from datetime import datetime
 
 def main():
     input_info = user_input()
     result = verify(input_info) 
-    ## print_report()
+    print_report(result, input_info)
 
 def user_input():
     input_info = {}
