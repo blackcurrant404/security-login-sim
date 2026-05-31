@@ -1,24 +1,10 @@
-from verification import verify
-from report import print_report
-from datetime import datetime
+from flask import Flask
 
-def main():
-    input_info = user_input()
-    result = verify(input_info) 
-    print_report(result, input_info)
+app = Flask(__name__)
+@app.route("/")
 
-def user_input():
-    input_info = {}
-
-    ip = input("Enter your ip (if empty, using default): ")
-    if ip == "":
-        ip = "10.0.0.100"
-    input_info["ip"] = ip
-    input_info["username"] = input("Enter the username: ")
-    input_info["password"] = input("Enter the password: ")
-    input_info["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    return input_info
+def home():
+    return "Hello world"
 
 if __name__ == "__main__":
-    main()
+    app.run()
