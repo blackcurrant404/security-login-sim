@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from datetime import datetime
-from verification import verify
-from report import print_report
+from service import login_user
 
 app = Flask(__name__)
 
@@ -24,8 +23,8 @@ def login():
         input_info["password"] = password
         input_info["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        result = verify(input_info)
-        print_report(result, input_info)
+        result = login_user(input_info)
+
         return jsonify({"authentication": result})
 
     else:
