@@ -19,3 +19,9 @@ Idea is to do a simple login simulator that can be used to test other applicatio
 - move authentication logic into separate service layer
 - server returns JSON responses (success / failure)
 - server handles logging of all authentication attempts
+
+## V4
+- HTML frontend
+- home page (/)
+- login UI route
+- backend and frontend integration
