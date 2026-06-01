@@ -12,7 +12,7 @@ def home():
 def login():
 
     if request.method == "GET":
-        return render_template("login.html")
+        return render_template("login.html", result=None)
 
     if request.method == "POST":
         username = request.form["username"]
@@ -28,7 +28,7 @@ def login():
 
         result = login_user(input_info)
 
-        return jsonify({"authentication": result})
+        return render_template("login.html", result=result)
 
     else:
         return jsonify({"message": "send post request"})
