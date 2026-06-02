@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 from datetime import datetime
 from service import login_user
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello world"
+    return render_template("index.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -29,9 +29,6 @@ def login():
         result = login_user(input_info)
 
         return render_template("login.html", result=result)
-
-    else:
-        return jsonify({"message": "send post request"})
 
 if __name__ == "__main__":
     app.run(debug=True)
