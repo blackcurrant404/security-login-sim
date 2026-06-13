@@ -1,5 +1,3 @@
-users = {"root": "bluewhale", "anna": "1234", "mike": "secret5"}
-
 def verify(input_info):
     
     input_username = input_info["username"]

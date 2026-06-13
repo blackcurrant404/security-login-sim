@@ -1,0 +1,12 @@
+{
+    "root": {
+        "password": "bluewhale"
+    },
+    "anna": {
+        "password": "1234"
+    },
+    "mike": {
+        "password": "secret5"
+    }
+
+}
