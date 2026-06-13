@@ -25,3 +25,10 @@ Idea is to do a simple login simulator that can be used to test other applicatio
 - home page (/)
 - login UI route
 - backend and frontend integration
+
+# V5
+- move users from hardcoded dictionary to JSON file
+- add basic audit fields for user records
+- store passwords as hashes instead of plaintext
+- update login logic to work with the new structure
+
