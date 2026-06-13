@@ -1,4 +1,4 @@
-from user_store import load_users
+from auth.user_store import load_users
 
 def verify(input_info):
     

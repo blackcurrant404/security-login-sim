@@ -1,5 +1,5 @@
-from verification import verify
-from report import print_report
+from auth.verification import verify
+from auth.audit import print_report
 
 def login_user(input_info: dict):
     result = verify(input_info)
