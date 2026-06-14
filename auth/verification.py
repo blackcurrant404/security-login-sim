@@ -1,12 +1,9 @@
 from auth.user_store import load_users
+from auth.password_manager import verify_password
 
 def verify(input_info):
     
-    input_username = input_info["username"]
-    input_password = input_info["password"]
     users = load_users()
+    result = verify_password(users, input_info)
 
-    if input_username in users:
-        return input_password == users[input_username]["password"]
-
-    return False
+    return result

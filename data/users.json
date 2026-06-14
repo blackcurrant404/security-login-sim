@@ -1,12 +1,12 @@
 {
     "root": {
-        "password": "bluewhale"
+        "hash_password": "$2b$12$W53KsDuMnYlHAWGctrgr6eEU0mDDZlILOcB4JrOZ.wu79XKagsT4a"
     },
     "anna": {
-        "password": "1234"
+        "hash_password": "$2b$12$X0lG5lRzhCW92FohRAzU5.7b8bHLS0Ih.mnGq9KN4aMmSMo0WFfFa"
     },
     "mike": {
-        "password": "secret5"
+        "hash_password": "$2b$12$BPtbCcnlNtPRA/nUEIgbheOu.CHkK.O3LmzwnkCZcyQfkgAb30cQa"
     }
 
 }
