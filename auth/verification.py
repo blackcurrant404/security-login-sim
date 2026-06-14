@@ -7,11 +7,12 @@ def verify(input_info):
     users = load_users()   
     input_username = input_info["username"]
     input_password = input_info["password"]   
+    timestamp = input_info["timestamp"]
 
     if input_username in users: 
         stored_hash = users[input_username]["password_hash"]
         result = verify_password(stored_hash, input_password)
-        update_login_info(input_username, result)
+        update_login_info(input_username, result, timestamp)
         return result
     else:
         return False

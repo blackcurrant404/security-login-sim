@@ -1,13 +1,13 @@
 {
     "root": {
         "password_hash": "$2b$12$W53KsDuMnYlHAWGctrgr6eEU0mDDZlILOcB4JrOZ.wu79XKagsT4a",
-        "failed_attempts": 1,
-        "last_login": "2026-06-14 21:36:02"
+        "failed_attempts": 0,
+        "last_login": null
     },
     "anna": {
         "password_hash": "$2b$12$X0lG5lRzhCW92FohRAzU5.7b8bHLS0Ih.mnGq9KN4aMmSMo0WFfFa",
         "failed_attempts": 0,
-        "last_login": "2026-06-14 21:35:25"
+        "last_login": null
     },
     "mike": {
         "password_hash": "$2b$12$BPtbCcnlNtPRA/nUEIgbheOu.CHkK.O3LmzwnkCZcyQfkgAb30cQa",

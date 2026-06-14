@@ -19,13 +19,13 @@ def login():
         password = request.form["password"]
         ip = request.remote_addr
 
-        input_info = {}
-
-        input_info["ip"] = ip
-        input_info["username"] = username
-        input_info["password"] = password
-        input_info["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
+        input_info = {
+            "ip": ip,
+            "username": username,
+            "password": password,
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            
         result = login_user(input_info)
 
         return render_template("login.html", result=result)
