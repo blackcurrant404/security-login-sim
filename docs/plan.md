@@ -32,3 +32,7 @@ Idea is to do a simple login simulator that can be used to test other applicatio
 - store passwords as hashes instead of plaintext
 - update login logic to work with the new structure
 
+# V6
+- ability to create users through web UI (user registration page)
+- user registration input validation
+- automatic failed attempt control (cooldowns and locked users)
