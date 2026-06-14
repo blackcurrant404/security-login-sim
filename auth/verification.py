@@ -1,5 +1,6 @@
 from auth.user_store import load_users
 from auth.password_manager import verify_password
+from auth.user_store import update_login_info
 
 def verify(input_info):
 
@@ -10,7 +11,7 @@ def verify(input_info):
     if input_username in users: 
         stored_hash = users[input_username]["password_hash"]
         result = verify_password(stored_hash, input_password)
+        update_login_info(input_username, result)
+        return result
     else:
-        result = False
-
-    return result
+        return False

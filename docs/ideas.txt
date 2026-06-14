@@ -1,12 +1,5 @@
-security login simulator ideas
+Audit field:
 
-- ask password
-- checks if the password is correct
-- saves all the attempts and ip:s to the log file
-
-
-Structure
-
-- user_input
-- verification
-- result
+- password_hash
+- failed attempts (goes back to the zero after successfull login)
+- last_login
