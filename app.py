@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from datetime import datetime
-from service import login_user
+from service import login_user, register_user
 
 app = Flask(__name__)
 
@@ -29,6 +29,25 @@ def login():
         result = login_user(input_info)
 
         return render_template("login.html", result=result)
+
+@app.route("/signup", methods=["GET", "POST"])
+def singup():
+
+    if request.method == "GET":
+        return render_template("signup.html", result=None)
+
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        input_info = {
+            "username": username,
+            "password": password
+        }
+
+        result = register_user(input_info)
+
+        return render_template("signup.html", result=result)
 
 if __name__ == "__main__":
     app.run(debug=True)

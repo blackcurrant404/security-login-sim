@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+
+            input {
+                display: block;
+            }
+
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body style="background-color: aquamarine;">
+        <div class="container">
+            <form method="POST">
+                <h1>Sign up</h1>
+                <input name="username">
+                <input type="password" name="password">
+                <button type="submit">Sign up</button>
+            </form>
+
+            {% if result is not none %}
+            <p>
+                {% if result %}
+                    Account created
+                {% else %}
+                    Username is taken or incorrect password
+                {% endif %}
+            </p>
+            {% endif %}
+
+        </div>
+    </body>
+</html>
