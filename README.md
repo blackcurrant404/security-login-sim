@@ -1,16 +1,5 @@
-# SECURITY LOGIN SIMULATOR
+    # SECURITY LOGIN SIMULATOR
 
-Simple HTTP-based authentication simulator that can be used for testing purposes. 
+   Simple HTTP-based authentication simulator for testing and learning purposes.
 
-Program uses predefined login credentials and have simple html front end. Produces report based on attempts (output + log file)
-
-
-
-Default demo credentials:
-
-root / bluewhale
-anna / 1234
-mike / secret5
-
-These passwords are documented for testing purposes.
-The application stores only bcrypt hashes.
+   The program stores user credentials and verifies them through a simple HTML front end. Passwords are stored as bcrypt hashes. The application logs login attempts and can generate reports based on authentication activity.
