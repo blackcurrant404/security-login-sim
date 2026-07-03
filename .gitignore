@@ -4,3 +4,4 @@ __pycache__/
 .env
 auth.log
 .ruff_cache/
+users.json
