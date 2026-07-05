@@ -22,7 +22,7 @@ def login():
             "ip": ip,
             "username": username,
             "password": password,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "timestamp": datetime.now()
             }
             
         result = login_user(input_info)

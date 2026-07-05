@@ -1,5 +1,5 @@
 from json import load, dump, JSONDecodeError
-from datetime import datetime, timedelta
+from datetime import datetime
 
 def load_users():
     try:
@@ -8,19 +8,15 @@ def load_users():
     except (FileNotFoundError, JSONDecodeError):
         return {}
 
-def update_login_info(username: str, result: bool, timestamp):
+def update_login_info(input_username: str, user: dict, result: bool, timestamp):
     users = load_users()
-    user = users[username]
+
     if result:
         user["last_login"] = timestamp      
         user["failed_attempts"] = 0 
         user["locked_until"] = None
-    else:
-        user["failed_attempts"] += 1
-        if user["failed_attempts"] >= 3:
-            user["locked_until"] = calculate_cooldown()
 
-    users[username] = user
+    users[input_username] = user
     save_users(users)
     return
 
@@ -43,9 +39,6 @@ def register_new_user(input_info: dict, hashed_password: str):
 def check_username_availability(input_username: str):
     users = load_users()
     return input_username not in users
-
-def calculate_cooldown():
-    return (datetime.now() + timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M:%S")
 
 
 # for testing 
