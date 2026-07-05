@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 from datetime import datetime
 from service import login_user, register_user
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -34,7 +33,9 @@ def login():
 def singup():
 
     if request.method == "GET":
-        return render_template("signup.html", result=None)
+        # result None because there isn't one    before any attempt
+        return render_template("signup.html", result=None) 
+        
 
     if request.method == "POST":
         username = request.form["username"]

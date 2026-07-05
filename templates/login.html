@@ -41,13 +41,18 @@
 </form>
 
 {% if result is not none %}
-<p>
-    {% if result %}
-        Authentication successful, correct password
+    
+    {% if result["locked"] %}
+            <p>Authentication failed, too many failed attempts. Try later again.</p>
     {% else %}
-        Authentication failed, wrong username or password
+    <p>
+        {% if result["verification"] %}
+            Authentication successful, correct password
+        {% else %}
+            Authentication failed, wrong username or password
+        {% endif %}
+    </p>
     {% endif %}
-</p>
 {% endif %}
 
 </div>

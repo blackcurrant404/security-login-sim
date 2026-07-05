@@ -1,4 +1,5 @@
 from json import load, dump, JSONDecodeError
+from datetime import datetime, timedelta
 
 def load_users():
     try:
@@ -9,12 +10,17 @@ def load_users():
 
 def update_login_info(username: str, result: bool, timestamp):
     users = load_users()
+    user = users[username]
     if result:
-        users[username]["last_login"] = timestamp
-        users[username]["failed_attempts"] = 0 
+        user["last_login"] = timestamp      
+        user["failed_attempts"] = 0 
+        user["locked_until"] = None
     else:
-        users[username]["failed_attempts"] += 1
+        user["failed_attempts"] += 1
+        if user["failed_attempts"] >= 3:
+            user["locked_until"] = calculate_cooldown()
 
+    users[username] = user
     save_users(users)
     return
 
@@ -28,7 +34,8 @@ def register_new_user(input_info: dict, hashed_password: str):
     users[input_info["username"]] = {
         "password_hash": hashed_password,
         "failed_attempts": 0,
-        "last_login": None
+        "last_login": None,
+        "locked_until": None
         }
     save_users(users)
     return
@@ -36,3 +43,11 @@ def register_new_user(input_info: dict, hashed_password: str):
 def check_username_availability(input_username: str):
     users = load_users()
     return input_username not in users
+
+def calculate_cooldown():
+    return (datetime.now() + timedelta(minutes=1)).strftime("%Y-%m-%d %H:%M:%S")
+
+
+# for testing 
+if __name__ == "__main__":
+    update_login_info("root", False, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
