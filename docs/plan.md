@@ -36,3 +36,9 @@ Idea is to do a simple login simulator that can be used to test other applicatio
 - ability to create users through web UI (user registration page)
 - user registration input validation
 - automatic failed attempt control (cooldowns and locked users)
+
+# V7
+- improve user registration validation (invalid input)
+- protected pages after login
+- session-based authentication
+- logout functionality
