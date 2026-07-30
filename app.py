@@ -1,12 +1,22 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session, redirect
 from datetime import datetime
 from service import login_user, register_user
+
 app = Flask(__name__)
+app.secret_key = "secret"
+
+# ------------- Routes --------------
 
 @app.route("/")
-def home():
+def index():
     return render_template("index.html")
 
+@app.route("/home")
+def home():
+    if "username" not in session:
+        return redirect("/login")
+    return render_template("home.html")
+     
 @app.route("/login", methods=["GET", "POST"])
 def login():
 
@@ -26,6 +36,10 @@ def login():
             }
             
         result = login_user(input_info)
+
+        if result["verification"] and not result["locked"]:
+            session["username"] = username
+            return redirect("/home")
 
         return render_template("login.html", result=result)
 
