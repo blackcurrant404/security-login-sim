@@ -1,5 +1,6 @@
-from json import load, dump, JSONDecodeError
-from datetime import datetime
+from datetime import datetime, timezone
+from json import JSONDecodeError, dump, load
+
 
 def load_users():
     try:
@@ -18,7 +19,6 @@ def update_login_info(input_username: str, user: dict, result: bool, timestamp):
 
     users[input_username] = user
     save_users(users)
-    return
 
 def save_users(users: dict):
     with open("data/users.json", "w") as new_file:
@@ -34,7 +34,6 @@ def register_new_user(input_info: dict, hashed_password: str):
         "locked_until": None
         }
     save_users(users)
-    return
 
 def check_username_availability(input_username: str):
     users = load_users()
@@ -43,4 +42,4 @@ def check_username_availability(input_username: str):
 
 # for testing 
 if __name__ == "__main__":
-    update_login_info("root", False, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    update_login_info("root", False, datetime.now(tz=timezone.utc).strftime("%Y-%m-%d %H:%M:%S"))

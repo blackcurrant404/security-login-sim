@@ -1,6 +1,8 @@
-from auth.user_store import load_users, update_login_info
+from datetime import datetime, timedelta, timezone
+
 from auth.password_manager import verify_password
-from datetime import datetime, timedelta
+from auth.user_store import load_users, update_login_info
+
 
 def verify(input_info):
 
@@ -46,4 +48,4 @@ def datetime_to_string(x: datetime):
     return x.strftime("%Y-%m-%d %H:%M:%S")
 
 def string_to_datetime(x: str):
-    return datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
+    return datetime.strptime(x, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)

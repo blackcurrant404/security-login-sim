@@ -1,4 +1,5 @@
-from bcrypt import checkpw, hashpw, gensalt
+from bcrypt import checkpw, gensalt, hashpw
+
 
 def verify_password(stored_hash, input_password: str):
     return checkpw(input_password.encode(), stored_hash.encode())

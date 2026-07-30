@@ -1,5 +1,6 @@
-from auth.user_store import register_new_user, check_username_availability
 from auth.password_manager import create_password
+from auth.user_store import check_username_availability, register_new_user
+
 
 def register(input_info: dict):
 
