@@ -1,5 +1,7 @@
-from flask import Flask, request, render_template, session, redirect
-from datetime import datetime
+from datetime import datetime, timezone
+
+from flask import Flask, redirect, render_template, request, session
+
 from service import login_user, register_user
 
 app = Flask(__name__)
@@ -32,7 +34,7 @@ def login():
             "ip": ip,
             "username": username,
             "password": password,
-            "timestamp": datetime.now()
+            "timestamp": datetime.now(tz=timezone.utc)
             }
             
         result = login_user(input_info)
@@ -63,6 +65,11 @@ def singup():
         result = register_user(input_info)
 
         return render_template("signup.html", result=result)
+
+@app.route("/logout")
+def logout():
+    session.pop("username", None)
+    return redirect("/index")
 
 if __name__ == "__main__":
     app.run(debug=True)
