@@ -37,7 +37,7 @@ def register_new_user(input_info: dict, hashed_password: str):
 
 def check_username_availability(input_username: str):
     users = load_users()
-    return input_username not in users
+    return input_username in users
 
 
 # for testing 

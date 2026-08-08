@@ -29,8 +29,10 @@
 
             {% if result is not none %}
             <p>
-                {% if result %}
+                {% if result == "success" %}
                     Account created
+                {% elif result == "weak_password" %}
+                    Password must be at least 8 characters long and contain uppercase letter, lowercase letter, special character, and number
                 {% else %}
                     Username is taken or incorrect password
                 {% endif %}
